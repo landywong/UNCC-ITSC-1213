@@ -10,17 +10,16 @@ import java.util.ArrayList;
  * already-sorted elements one step to the right and drops the new
  * element into the gap.)
  *
- * @author  TODO Your Name
- * @version TODO Tuesday, July 14, 2026
+ * @author  Landon Lwea
+ * @version Tuesday, July 14, 2026
  */
 public class InsertionSort extends BaseSorter<Integer> implements SortingAlgorithm<Integer> {
 
     /**
-     * TODO: Write a one-sentence purpose statement for the sort()
-     * method here.
+     * Sorts an array list using insertion method
      *
-     * TODO: Add an @param tag describing the input.
-     * TODO: Add an @return tag describing what comes back.
+     * @param data is the list of integers beiing used
+     * @return updated list now sorted
      */
     @Override
     public ArrayList<Integer> sort(ArrayList<Integer> data) {
@@ -59,13 +58,25 @@ public class InsertionSort extends BaseSorter<Integer> implements SortingAlgorit
         // Main.java: add `algorithms.add(new InsertionSort());` so the
         // driver actually runs your sort.
 
-        // TODO: replace this temporary stub with your real implementation.
-        return copyList(data);
+        ArrayList<Integer> list = copyList(data);
+        int n = list.size();
+        for (int i = 1; i < n; i++) {
+            int key = list.get(i);
+            int j = i - 1;
+            // Shift elements of the sorted portion that are greater than key
+            // one position to the right
+            while (j >= 0 && list.get(j) > key) {
+                list.set(j + 1, list.get(j));
+                j--;
+            }
+            list.set(j + 1, key);
+        }
+        return list;
     }
 
     /**
-     * TODO: Write a one-sentence purpose statement for getName().
-     * TODO: Add an @return tag describing what comes back.
+     * Prints type of sorting method
+     * @return Insertion Sort
      */
     @Override
     public String getName() {

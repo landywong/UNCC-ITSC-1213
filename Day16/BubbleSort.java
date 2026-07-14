@@ -1,29 +1,25 @@
 import java.util.ArrayList;
 
 /**
- * TODO: Replace this paragraph with a one-sentence summary of what
- * the BubbleSort class does.
+ * the Bubble sort class sorts the numbers in an array by swaping items side by side
  *
- * TODO: Add a longer paragraph describing the algorithm in your own
- * words. (Hint: see the line-by-line plain-English explanation you
- * will write in BubbleSort_Explanation.md and copy the high-level
- * idea here.)
+ * The bubble sort functions by scanning items in a array from left to right, after selecting
+ * the first item, it compares it to the next swaping position if out of place. This process
+ * repeats until all items are sorted
  *
  * TODO: Fill in the @author tag with your name and the @version tag
  * with today's date.
  *
- * @author  TODO Your Name
- * @version TODO Tuesday, July 14, 2026
+ * @author  Landon Lwea
+ * @version Tuesday, July 14, 2026
  */
 public class BubbleSort extends BaseSorter<Integer> implements SortingAlgorithm<Integer> {
 
     /**
-     * TODO: Write a one-sentence purpose statement for the sort()
-     * method here. The first sentence becomes the method's summary
-     * in the generated Javadoc.
+     * Method to bubble sort an array list
      *
-     * TODO: Add an @param tag describing the input.
-     * TODO: Add an @return tag describing what comes back.
+     * @param data is the list of integers in an array
+     * @return an updated list now sorted
      */
     @Override
     public ArrayList<Integer> sort(ArrayList<Integer> data) {
@@ -46,27 +42,27 @@ public class BubbleSort extends BaseSorter<Integer> implements SortingAlgorithm<
         // that the "Sorted" line is in non-decreasing order.
         // ====================================================================
 
-        if (!swapped) break;
-        ArrayList<Integer> list = copyList(data);
-        return list;
-        for (int j = 0; j < n - 1 - i; j++) {
-        if (list.get(j) > list.get(j + 1)) {
         boolean swapped;
-        }
-        list.set(j + 1, temp);
-        for (int i = 0; i < n - 1; i++) {
+        ArrayList<Integer> list = copyList(data);
         int n = list.size();
-        list.set(j, list.get(j + 1));
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (list.get(j) > list.get(j + 1)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                    swapped = true;
+                }
+            }
+            if (!swapped) break;
         }
-        int temp = list.get(j);
-        swapped = true;
-        swapped = false;
-        }
+        return list;
     }
 
     /**
-     * TODO: Write a one-sentence purpose statement for getName().
-     * TODO: Add an @return tag describing what comes back.
+     * Prints out name of sorting method
+     * @return Bubble Sort
      */
     @Override
     public String getName() {

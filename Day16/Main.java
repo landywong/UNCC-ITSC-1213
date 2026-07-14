@@ -20,9 +20,7 @@ public class Main {
 
         ArrayList<SortingAlgorithm<Integer>> algorithms = new ArrayList<>();
         algorithms.add(new BubbleSort());
-        // TODO: After you implement InsertionSort.sort(), uncomment the
-        //       next line so the driver runs your insertion sort too.
-        // algorithms.add(new InsertionSort());
+        algorithms.add(new InsertionSort());
         algorithms.add(new SelectionSort());
         algorithms.add(new QuickSort());
 
